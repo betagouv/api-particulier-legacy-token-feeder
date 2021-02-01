@@ -1,4 +1,12 @@
-Middleware API used by API Particulier to transform legacy API keys into their hash before reaching Gravitee.
+API used by API Particulier to process legacy API keys.
+
+## Goal
+
+The aim of this small API is to be able to control which API keys Gravitee can receive.
+
+Since we don't know the legacy API keys values, we check if we know them by their hash, and if it's the case, we replace the API Key with its hash.
+
+This way, we can configure in Gravitee the new API keys directly, and the legacy API keys hashes.
 
 ## Installation
 
