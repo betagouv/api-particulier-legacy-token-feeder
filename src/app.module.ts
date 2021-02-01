@@ -1,17 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TokenModule } from 'src/tokens/token.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      username: process.env.DB_USER,
-      database: process.env.DB_NAME,
-      autoLoadEntities: true,
-    }),
-  ],
+  imports: [TypeOrmModule.forRoot(), TokenModule],
   controllers: [AppController],
   providers: [AppService],
 })
