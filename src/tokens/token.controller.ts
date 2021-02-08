@@ -13,14 +13,14 @@ export class TokenController {
   ) {}
 
   @Get('/tokens/:token')
-  async getApiKeyHash(@Param() params): Promise<string> {
+  async getApiKeyHash(@Param() params): Promise<Token> {
     const { token } = params;
     const hash = this.tokenService.computeApiKeyHash(token);
 
     const foundToken = await this.tokenRepository.findOne({ hash });
 
     if (foundToken) {
-      return hash;
+      return foundToken;
     }
 
     throw new NotFoundException();

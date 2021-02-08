@@ -9,4 +9,7 @@ export class Token {
 
   @Column()
   hash: string;
+
+  @Column()
+  apiKey: string;
 }
